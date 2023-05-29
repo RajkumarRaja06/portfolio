@@ -5,9 +5,11 @@ nav {
   width: 100%;
   height: 5rem;
   z-index: 100;
+  background-color: var(--clr-very-dark-blue);
+  box-shadow: var(--dark-shadow);
 }
 
-.navBar {
+.navbar {
   position: relative;
   height: 100%;
   max-width: 63rem;
@@ -20,12 +22,12 @@ nav {
   justify-content: space-between;
 }
 
-.navBarList {
+.navbar-list {
   display: flex;
   align-items: center;
 }
 
-.navBarList li {
+.navbar-list li {
   position: relative;
   margin: 0 0.5rem;
   font-size: 1rem;
@@ -35,11 +37,11 @@ nav {
   cursor: pointer;
 }
 
-.navBarList li:hover {
+.navbar-list li:hover {
   color: var(--clr-text-color);
 }
 
-.navBarList li::before {
+.navbar-list li::before {
   content: '';
   position: absolute;
   height: 0.4rem;
@@ -57,11 +59,11 @@ nav {
   color: var(--clr-white);
 }
 
-.navBarList li a:hover {
+.navbar-list li a:hover {
   color: var(--clr-text-color);
 }
 
-.navBarList li:hover::before {
+.navbar-list li:hover::before {
   opacity: 1;
   color: var(--clr-text-color);
   background-color: var(--clr-text-color);
@@ -113,12 +115,12 @@ nav {
     top: 87%;
   }
 
-  .navBar {
+  .navbar {
     position: relative;
     justify-content: space-between;
   }
 
-  .navBarList {
+  .navbar-list {
     display: none;
     position: absolute;
     bottom: 0rem;

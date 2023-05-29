@@ -1,10 +1,13 @@
-import NavBar from './component/NavBar';
+import Navbar from './component/Navbar';
 import Home from './component/Home';
+import Skills from './component/Skills';
+
 const App = () => {
   return (
     <>
-      <NavBar />
+      <Navbar />
       <Home />
+      <Skills />
     </>
   );
 };
