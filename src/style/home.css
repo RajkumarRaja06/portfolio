@@ -6,10 +6,9 @@ body {
 }
 .home {
   position: relative;
-  top: 11rem;
+  top: 13rem;
   max-width: 63rem;
   width: 100%;
-  height: 75%;
   color: var(--clr-white);
   display: flex;
   align-items: center;
