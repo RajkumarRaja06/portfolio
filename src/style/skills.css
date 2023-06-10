@@ -1,14 +1,15 @@
 .skills-section {
   position: relative;
-  top: 20rem;
+  top: 16rem;
   max-width: 63rem;
   width: 100%;
-  height: 75%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--clr-white);
+  overflow: hidden;
 }
 
 .section-title {
@@ -19,23 +20,22 @@
 .section-subtitle {
   font-size: 1rem;
   font-weight: 400;
-  margin: 0.2rem auto 3rem auto;
+  margin: 0.2rem auto 0rem auto;
 }
 
 .skills-container {
   width: 75%;
-  height: 100%;
+  margin: 2.5rem auto;
   padding: 0 2rem;
 }
 
 .skills-container-box {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0 2rem;
+  gap: 5rem 3rem;
 }
 
 .skills-image-box {
@@ -46,10 +46,51 @@
 }
 .skill-img {
   width: 10rem;
-  height: 5rem;
+  height: 6rem;
 }
 
 .skill-name {
   font-size: 1rem;
   text-transform: uppercase;
+}
+
+.skills-image-box:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
