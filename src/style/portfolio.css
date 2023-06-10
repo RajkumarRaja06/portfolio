@@ -1,0 +1,211 @@
+.portfolio {
+  position: relative;
+  top: 20rem;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: aliceblue;
+}
+
+.portfolio-data {
+  position: relative;
+  top: 10rem;
+  min-height: 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-software-name {
+  font-size: 1rem;
+}
+
+#portfolio-content {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portfolio-project-software {
+  position: absolute;
+  top: -8rem;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  color: var(--clr-text-color);
+}
+
+.portfolio-image {
+  width: 20rem;
+  height: 10rem;
+}
+
+.portfolio-image img {
+  border-radius: 1rem;
+}
+
+.portfolio-project-data {
+  width: 30rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.portfolio-project-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.portfolio-project-description {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.portfolio-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.portfolio-project-github-btn,
+.portfolio-project-host-btn {
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  color: var(--clr-grey-10);
+}
+
+.gitHub-icon:hover,
+.demo-icon:hover {
+  color: var(--clr-text-color);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.link-icon {
+  position: relative;
+  top: 2px;
+  margin-left: 6px;
+}
+
+@media screen and (max-width: 1024px) {
+  #portfolio-content {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+  }
+  .portfolio-software-name {
+    font-size: 1rem;
+  }
+  .prev-btn,
+  .next-btn {
+    font-size: 1.5rem;
+  }
+  .portfolio-image {
+    width: 15rem;
+    height: 10rem;
+  }
+  .portfolio-project-data {
+    width: 30rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .portfolio-project-name {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-project-description {
+    font-size: 0.75rem;
+  }
+  .portfolio-project-github-btn,
+  .portfolio-project-host-btn {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #portfolio-content {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+  }
+  .portfolio-image {
+    width: 20rem;
+    height: 10rem;
+  }
+  .portfolio-project-data {
+    width: 90%;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .prev-btn,
+  .next-btn {
+    top: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-image {
+    width: 15rem;
+    height: 8rem;
+  }
+  .portfolio-project-name {
+    font-size: 1.3rem;
+  }
+}
+
+article {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+article.activeSlide {
+  overflow: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+article.prevSlide {
+  transform: translateX(-120%);
+}
+
+article.nextSlide {
+  transform: translateX(120%);
+}
