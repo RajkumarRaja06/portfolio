@@ -5,10 +5,14 @@ import { AiOutlineSend } from 'react-icons/ai';
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='home' id='home'>
       <div className='social-media-icon'>
-        {socialMediaIcon.map((icon) => {
-          return <a href='#'>{icon}</a>;
+        {socialMediaIcon.map(({ id, icon }) => {
+          return (
+            <a href='#' key={id}>
+              {icon}
+            </a>
+          );
         })}
       </div>
       <div className='about'>

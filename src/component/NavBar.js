@@ -13,12 +13,13 @@ const Navbar = () => {
         <div className='menu'>
           <ul className='navbar-list'>
             {navbarList.map((data) => {
+              const { icon, href, name, id } = data;
               return (
                 <>
-                  <li>
-                    <a href='#navbar' className='nav-menu'>
-                      <span className='nav-icon'>{data.icon}</span>
-                      <span className='nav-icon-name'>{data.name}</span>
+                  <li key={id}>
+                    <a href={href} className='nav-menu'>
+                      <span className='nav-icon'>{icon}</span>
+                      <span className='nav-icon-name'>{name}</span>
                     </a>
                   </li>
                 </>

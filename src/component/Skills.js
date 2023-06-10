@@ -4,21 +4,17 @@ import { skillsImage } from '../data';
 
 const Skills = () => {
   return (
-    <section className='skills-section'>
+    <section className='skills-section' id='skills'>
       <h2 className='section-title'>Skills</h2>
       <span className='section-subtitle'>My tech stack</span>
       <div className='skills-container'>
         <div className='skills-container-box'>
-          {skillsImage.map((item) => {
+          {skillsImage.map((skill) => {
+            const { id, img, name } = skill;
             return (
               <div className='skills-image-box'>
-                <img
-                  className='skill-img'
-                  id={item.id}
-                  src={item.img}
-                  alt={item.name}
-                />
-                <div className='skill-name'>{item.name}</div>
+                <img className='skill-img' key={id} src={img} alt={name} />
+                <div className='skill-name'>{name}</div>
               </div>
             );
           })}
