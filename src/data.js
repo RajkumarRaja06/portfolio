@@ -59,10 +59,12 @@ export const socialMediaIcon = [
   {
     id: 1,
     icon: <FiGithub />,
+    link: 'https://github.com/RajkumarRaja06',
   },
   {
     id: 2,
     icon: <SlSocialLinkedin />,
+    link: 'https://www.linkedin.com/in/rajkumarraja06/',
   },
 ];
 
@@ -165,5 +167,20 @@ export const portfolioSliders = [
     img: expenseTracker,
     code: 'https://rajkumarraja06.github.io/expense-tracker.github.io/',
     demo: 'https://github.com/RajkumarRaja06/expense-tracker.github.io',
+  },
+];
+
+export const footerLinks = [
+  {
+    name: 'Skills',
+    href: '#skills',
+  },
+  {
+    name: 'Portfolio',
+    href: '#portfolio',
+  },
+  {
+    name: 'Connect Me',
+    href: '#connect',
   },
 ];
