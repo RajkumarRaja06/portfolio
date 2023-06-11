@@ -1,14 +1,12 @@
 import '../style/skills.css';
 import '../style/portfolio.css';
 import PortfolioData from './PortfolioData';
+import Title from './Title';
 
 const Portfolio = () => {
   return (
     <div className='portfolio' id='portfolio'>
-      <div className='portfolio-title'>
-        <h2 className='portfolio-name'>Portfolio</h2>
-        <span className='portfolio-subtitle'>Most recent work</span>
-      </div>
+      <Title name='Portfolio' subtitle='Most recent work' />
       <PortfolioData />
     </div>
   );

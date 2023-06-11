@@ -32,7 +32,18 @@ const PortfolioData = () => {
     <div className='portfolio-data'>
       <div className='portfolio-project-software'>
         <div className='portfolio-software-name'>React Js</div>
-        <div className='portfolio-dot-border'></div>
+        <div className='portfolio-dot'>
+          {users.map((item, btnIndex) => (
+            <button
+              className={`portfolio-dot-border ${
+                index === btnIndex ? 'active-border' : null
+              }`}
+              id={item.id}
+              key={item.id}
+              onClick={() => setIndex(btnIndex)}
+            ></button>
+          ))}
+        </div>
       </div>
       <>
         {users.map((user, position) => {
