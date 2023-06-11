@@ -1,12 +1,12 @@
 import '../style/index.css';
 import '../style/skills.css';
 import { skillsImage } from '../data';
+import Title from './Title';
 
 const Skills = () => {
   return (
     <section className='skills-section' id='skills'>
-      <h2 className='section-title'>Skills</h2>
-      <span className='section-subtitle'>My tech stack</span>
+      <Title name='Skills' subtitle='My tech stack' />
       <div className='skills-container'>
         <div className='skills-container-box'>
           {skillsImage.map((skill) => {
