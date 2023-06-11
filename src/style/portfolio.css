@@ -10,17 +10,13 @@
 
 .portfolio-data {
   position: relative;
-  top: 10rem;
+  top: 13rem;
   min-height: 35%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.portfolio-software-name {
-  font-size: 1rem;
 }
 
 #portfolio-content {
@@ -33,7 +29,11 @@
 
 .portfolio-project-software {
   position: absolute;
-  top: -8rem;
+  top: -10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .prev-btn {
@@ -110,6 +110,27 @@
   margin-left: 6px;
 }
 
+.portfolio-dot-border {
+  border: 1px solid;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0.2rem;
+}
+
+.portfolio-dot-border:hover {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: aqua;
+}
+
+.active-border {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: aqua;
+}
+
 @media screen and (max-width: 1024px) {
   #portfolio-content {
     width: 85%;
@@ -174,7 +195,7 @@
   }
   .prev-btn,
   .next-btn {
-    top: 60%;
+    transform: translateY(50%);
   }
 }
 
@@ -185,6 +206,10 @@
   }
   .portfolio-project-name {
     font-size: 1.3rem;
+  }
+  .prev-btn,
+  .next-btn {
+    transform: translateY(50%);
   }
 }
 
