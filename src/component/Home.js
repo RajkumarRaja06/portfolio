@@ -7,9 +7,9 @@ const Home = () => {
   return (
     <div className='home' id='home'>
       <div className='social-media-icon'>
-        {socialMediaIcon.map(({ id, icon }) => {
+        {socialMediaIcon.map(({ id, icon, link }) => {
           return (
-            <a href='#' key={id}>
+            <a href={link} key={id}>
               {icon}
             </a>
           );
