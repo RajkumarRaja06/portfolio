@@ -4,6 +4,8 @@ import { CgFileDocument, CgList } from 'react-icons/cg';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { FiGithub } from 'react-icons/fi';
 import { SlSocialLinkedin } from 'react-icons/sl';
+import { TbBrandBlogger } from 'react-icons/tb';
+
 import html from './images/html.svg';
 import css from './images/css.svg';
 import javaScript from './images/javascript.svg';
@@ -38,7 +40,7 @@ export const navbarList = [
   {
     id: 3,
     icon: <CgFileDocument />,
-    name: 'Skill',
+    name: 'Skills',
     href: '#skills',
   },
   {
@@ -52,6 +54,12 @@ export const navbarList = [
     icon: <RiSendPlaneFill />,
     name: 'Contact Me',
     href: '#contact',
+  },
+  {
+    id: 6,
+    icon: <TbBrandBlogger />,
+    name: 'Blog',
+    href: '#blog',
   },
 ];
 
