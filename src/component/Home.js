@@ -24,7 +24,7 @@ const Home = () => {
             that provide an enjoyable and seamless user experience.
           </p>
           <button type='button' className='btn connect'>
-            <a href='#home'>
+            <a href='#contact'>
               Connect Me
               <span className='connect-icon'>
                 <AiOutlineSend />
