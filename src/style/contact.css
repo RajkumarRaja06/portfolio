@@ -1,14 +1,18 @@
 .contact {
-  margin-top: 40rem;
-  min-height: 80vh;
+  max-width: 63rem;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  overflow: hidden;
+  padding: 0 1rem;
+  margin-top: 5rem;
 }
 
 .contact-form {
-  width: 80vh;
+  width: 35rem;
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -20,27 +24,35 @@
 .contact-form-email {
   height: 3rem;
 }
+
 .contact-form-name,
 .contact-form-email,
 .contact-form-message {
-  width: 90%;
+  width: 100%;
   font-size: 1.2rem;
   padding: 0.5rem;
   border: none;
-  border-bottom: 2px solid var(--clr-text-color);
+  border-bottom: 2px solid var(--clr-button-lite-color);
   background-color: transparent;
+  color: var(--clr-black);
+  font-weight: 700;
+}
+
+::placeholder {
+  color: var(--clr-text-light-color);
+  font-weight: 400;
 }
 
 .contact-form-name:focus,
 .contact-form-email:focus,
 .contact-form-message:focus {
   border: 2px solid;
-  border-color: var(--clr-text-color);
-  background-color: hsl(250, 29%, 16%);
+  border-color: var(--clr-button-lite-color);
+  background-color: var(--clr-text-light-color);
 }
 
 .btn-container {
-  width: 90%;
+  width: 100%;
 }
 
 .connect {
@@ -65,15 +77,27 @@
   margin-left: 0.75rem;
 }
 
+@media screen and (max-width: 768px) {
+  .contact-form {
+    width: 25rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
+  .contact-form {
+    width: 17rem;
+  }
   .contact-form-name,
   .contact-form-email,
   .contact-form-message {
-    width: 50%;
+    width: 100%;
     font-size: 1rem;
   }
   .connect {
     padding: 0.75rem;
     font-size: 0.75rem;
+  }
+  .btn-container {
+    width: 50%;
   }
 }

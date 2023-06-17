@@ -1,15 +1,15 @@
 .skills-section {
-  position: relative;
-  top: 16rem;
   max-width: 63rem;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: var(--clr-white);
+  justify-content: space-evenly;
+  color: var(--clr-text-color);
   overflow: hidden;
+  margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .skills-container {
@@ -41,6 +41,7 @@
 .skill-name {
   font-size: 1rem;
   text-transform: uppercase;
+  color: var(--clr-text-light-color);
 }
 
 .skills-image-box:hover {

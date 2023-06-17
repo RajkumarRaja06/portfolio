@@ -1,11 +1,12 @@
 footer {
-  width: 100vw;
+  width: 100%;
   min-height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: hsl(250, 30%, 8%);
+  background-color: var(--clr-footer-background);
+  box-shadow: var(--dark-shadow);
   color: var(--clr-white);
 }
 
@@ -18,7 +19,7 @@ footer {
   align-items: center;
 }
 
-.social-media-icon {
+.social {
   width: 15%;
   display: flex;
   flex-direction: row;
@@ -27,41 +28,66 @@ footer {
   gap: 2rem;
 }
 
-.social-media-icon a {
+.social a {
   font-size: 1.5rem;
-  color: var(--clr-text-color);
+  color: inherit;
 }
 
-.social-media-icon a:hover {
-  box-shadow: var(--dark-shadow);
-  color: var(--clr-white);
+.social a:hover {
+  color: var(--clr-button-color);
 }
 
 .footer-icon {
   margin: 0.75rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  color: inherit;
 }
 
-.footer-icon::after {
-  color: var(--clr-text-color);
+.footer-icon:hover {
+  color: var(--clr-button-color);
 }
 
-@media screen and (max-width: 830px) {
+.titleName {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--clr-white);
+}
+
+.titleSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0.2rem auto 0rem auto;
+  color: var(--clr-white);
+}
+
+@media screen and (max-width: 768px) {
   footer {
-    min-height: 40vh;
-    padding: 2rem 0rem;
+    height: 60vh;
+    padding-top: 1rem;
   }
   .footer-data {
-    width: 80vw;
-    height: 80%;
+    width: 90vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 1.5rem;
   }
   .footer-para {
     position: relative;
     top: -100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social a {
+    font-size: 1.5rem;
+  }
+  .footer-icon {
+    font-size: 0.9rem;
+  }
+  .footer-para {
+    font-size: 0.9rem;
   }
 }

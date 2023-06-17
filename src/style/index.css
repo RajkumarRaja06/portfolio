@@ -7,46 +7,45 @@
 }
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: #044e53;
-  --clr-primary-2: #0a6c75;
-  --clr-primary-3: #0e7c86;
-  --clr-primary-4: #149199;
-  /* primary/main color */
-  --clr-primary-5: #2caeba;
-  /* lighter shades of primary color */
-  --clr-primary-6: #37bcc8;
-  --clr-primary-7: #52d1da;
-  --clr-primary-8: #88ebf2;
-  --clr-primary-9: #bff8fd;
-  --clr-primary-10: #e0fcff;
-  /* darkest grey - used for headings */
-  --clr-grey-1: #102a42;
-  --clr-grey-2: #243a52;
-  --clr-grey-3: #324d67;
-  --clr-grey-4: #48647f;
-  /* grey used for paragraphs */
-  --clr-grey-5: #617d98;
-  --clr-grey-6: #829ab0;
-  --clr-grey-7: #9eb2c7;
-  --clr-grey-8: #bcccdc;
-  --clr-grey-9: #dae2ec;
-  --clr-grey-10: #f1f5f8;
-  --clr-white: #fff;
-  --clr-black: #000;
   --ff-primary: 'Poppins', sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
   --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
   /* customize color */
-  --clr-very-dark-blue: #191627;
-  --clr-text-color: #6666cc;
+
+  --clr-background: #191627;
+  --clr-button-lite-color: #6666cc;
   --clr-button-color: #4e3bb0;
   --clr-button-alt-color: #6e57e0;
+  --clr-text-color: #fff;
+  --clr-text-light-color: #bcbac4;
+  --clr-black: #000;
+  --clr-white: #fff;
+  --clr-footer-background: #100e1b;
 }
 
+.light-theme {
+  --clr-background: #ffffff;
+  --clr-button-lite-color: #6666cc;
+  --clr-button-color: #4e3bb0;
+  --clr-button-alt-color: #6e57e0;
+  --clr-text-color: #242329;
+  --clr-text-light-color: #6d6a7c;
+  --clr-footer-background: #6e57e0;
+}
+
+.dark-theme {
+  --clr-background: #191627;
+  --clr-button-lite-color: #6666cc;
+  --clr-button-color: #4e3bb0;
+  --clr-button-alt-color: #6e57e0;
+  --clr-text-color: #fff;
+  --clr-text-light-color: #bcbac4;
+  --clr-footer-background: #100e1b;
+}
 /*
 =============== 
 Global Styles
@@ -59,9 +58,7 @@ html {
 
 body {
   font-family: var(--ff-primary);
-  background-color: var(--clr-very-dark-blue);
-  display: flex;
-  justify-content: center;
+  background-color: var(--clr-background);
 }
 
 ol,
@@ -71,12 +68,18 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--clr-white);
 }
 
 img {
   width: 100%;
   height: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .title-container {
@@ -89,10 +92,12 @@ img {
 .title-name {
   font-size: 2rem;
   font-weight: 500;
+  color: var(--clr-text-color);
 }
 
 .title-subtitle {
   font-size: 1rem;
   font-weight: 400;
   margin: 0.2rem auto 0rem auto;
+  color: var(--clr-text-light-color);
 }

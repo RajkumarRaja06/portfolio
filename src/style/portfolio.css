@@ -1,18 +1,21 @@
 .portfolio {
-  position: relative;
-  top: 20rem;
-  min-height: 88vh;
+  max-width: 63rem;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: aliceblue;
+  overflow: hidden;
+  margin-top: 10rem;
+  padding: 0 1rem;
 }
 
 .portfolio-data {
   position: relative;
   top: 13rem;
-  min-height: 35%;
   width: 100%;
+  min-height: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +39,11 @@
   align-items: center;
 }
 
+.portfolio-software-name {
+  font-size: 1rem;
+  color: var(--clr-text-color);
+}
+
 .prev-btn {
   left: 0;
 }
@@ -49,11 +57,12 @@
   position: absolute;
   font-size: 2rem;
   cursor: pointer;
+  color: var(--clr-button-color);
 }
 
 .prev-btn:hover,
 .next-btn:hover {
-  color: var(--clr-text-color);
+  color: var(--clr-button-lite-color);
 }
 
 .portfolio-image {
@@ -76,11 +85,13 @@
 .portfolio-project-name {
   font-size: 2rem;
   font-weight: 700;
+  color: var(--clr-text-color);
 }
 
 .portfolio-project-description {
   font-size: 1rem;
   font-weight: 500;
+  color: var(--clr-text-light-color);
 }
 
 .portfolio-project-btn {
@@ -97,11 +108,16 @@
   color: var(--clr-grey-10);
 }
 
-.gitHub-icon:hover,
-.demo-icon:hover {
-  color: var(--clr-text-color);
+.gitHub-icon,
+.demo-icon {
+  color: var(--clr-button-color);
   font-size: 1.5rem;
   font-weight: 900;
+}
+
+.gitHub-icon:hover,
+.demo-icon:hover {
+  color: var(--clr-button-lite-color);
 }
 
 .link-icon {
@@ -117,18 +133,19 @@
   border-radius: 50%;
   cursor: pointer;
   margin: 0.2rem;
+  background-color: var(--clr-button-color);
 }
 
 .portfolio-dot-border:hover {
   width: 0.75rem;
   height: 0.75rem;
-  background-color: aqua;
+  background-color: var(--clr-text-light-color);
 }
 
 .active-border {
   width: 0.75rem;
   height: 0.75rem;
-  background-color: aqua;
+  background-color: var(--clr-text-light-color);
 }
 
 @media screen and (max-width: 1024px) {
@@ -173,6 +190,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .portfolio-data {
+    top: 10rem;
+  }
+  .portfolio-project-software {
+    top: -5rem;
+  }
   #portfolio-content {
     width: 85%;
     height: 100%;
@@ -195,21 +218,17 @@
   }
   .prev-btn,
   .next-btn {
-    transform: translateY(50%);
+    top: 110px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .portfolio-image {
-    width: 15rem;
+    width: 13rem;
     height: 8rem;
   }
   .portfolio-project-name {
     font-size: 1.3rem;
-  }
-  .prev-btn,
-  .next-btn {
-    transform: translateY(50%);
   }
 }
 
