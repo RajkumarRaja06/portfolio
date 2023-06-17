@@ -12,8 +12,8 @@ const Skills = () => {
           {skillsImage.map((skill) => {
             const { id, img, name } = skill;
             return (
-              <div className='skills-image-box'>
-                <img className='skill-img' key={id} src={img} alt={name} />
+              <div className='skills-image-box' key={id}>
+                <img className='skill-img' src={img} alt={name} />
                 <div className='skill-name'>{name}</div>
               </div>
             );
