@@ -2,8 +2,10 @@ import '../style/index.css';
 import '../style/home.css';
 import { socialMediaIcon } from '../data';
 import { AiOutlineSend } from 'react-icons/ai';
+import image from '../images/me1.jpg';
 
 const Home = () => {
+  console.log(image);
   return (
     <div className='home' id='home'>
       <div className='social-media-icon'>
@@ -34,7 +36,9 @@ const Home = () => {
         </div>
         <div className='imageContainer'>
           <div className='imageBorder'>
-            <img src={'../public/men.jpg'} alt='profilePic' />
+            <div className='img-content'>
+              <img src={image} alt='profilePic' />
+            </div>
           </div>
         </div>
       </div>
