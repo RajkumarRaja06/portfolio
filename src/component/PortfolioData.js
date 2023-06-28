@@ -1,7 +1,6 @@
 import '../style/skills.css';
 import '../style/portfolio.css';
-import { FaLessThan, FaGreaterThan, FaArrowRight } from 'react-icons/fa';
-// import PortfolioSliders from './PortfolioSliders';
+import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { FiGithub } from 'react-icons/fi';
 import { portfolioSliders } from '../data';
