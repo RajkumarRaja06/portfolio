@@ -5,6 +5,7 @@ import { BsMoon, BsXLg } from 'react-icons/bs';
 import { ImSun } from 'react-icons/im';
 import { BiGridAlt } from 'react-icons/bi';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [isChangeButton, setIsChangeButton] = useState(true);
@@ -39,13 +40,22 @@ const Navbar = () => {
             }`}
           >
             {navbarList.map((data) => {
-              const { icon, href, name, id } = data;
+              const { icon, href, name, id, offset } = data;
               return (
-                <li key={id} onClick={changeMenuBtn}>
-                  <a href={href} className='nav-menu'>
+                <li key={id}>
+                  <Link
+                    className='nav-menu'
+                    activeClass='active'
+                    to={href}
+                    spy={true}
+                    smooth={true}
+                    offset={offset}
+                    duration={500}
+                    onClick={changeMenuBtn}
+                  >
                     <span className='nav-icon'>{icon}</span>
                     <span className='nav-icon-name'>{name}</span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
