@@ -8,6 +8,7 @@
 .slider {
   width: 100%;
   height: 15rem;
+  margin-top: 3rem;
 }
 
 .slider-software-name {
@@ -43,7 +44,7 @@
 }
 
 .slider-data-description {
-  width: 90%;
+  width: 95%;
   height: 9rem;
   font-size: 1rem;
   margin: 0.75rem auto;
@@ -57,9 +58,30 @@
   gap: 2.5rem;
 }
 
+.slick-dots {
+  top: -10px;
+}
+
+.slick-dots li {
+  margin: 0;
+}
+
+.slick-dots li button:before {
+  font-size: 0.5rem;
+  color: var(--clr-button-color);
+  width: 10px;
+  height: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  font-size: 0.75rem;
+  color: var(--clr-text-light-color);
+}
+
 @media screen and (max-width: 1024px) {
   .slider-container {
     max-width: 55rem;
+    width: 85%;
   }
   .slider-data-description {
     font-size: 0.75rem;
@@ -80,7 +102,7 @@
   }
   .slider-img {
     width: 14rem;
-    height: 70%;
+    height: 50%;
   }
   .slider-img img {
     height: 100%;

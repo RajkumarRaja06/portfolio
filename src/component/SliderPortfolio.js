@@ -45,7 +45,7 @@ const SliderPortfolio = () => {
 
   return (
     <div className='slider-container'>
-      <div className='slider-software-name'>JavaScript</div>
+      <div className='slider-software-name'>HTML CSS JavaScript</div>
       <Slider {...settings}>
         {portfolioSliders.map(({ id, name, img, description, code, demo }) => (
           <div className='slider' key={id}>
