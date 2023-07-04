@@ -11,8 +11,8 @@ const SliderPortfolio = () => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
+    slidesToScroll: 3,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
@@ -56,16 +56,14 @@ const SliderPortfolio = () => {
               <div className='slider-data-name'>{name}</div>
               <div className='slider-data-description'>{description}</div>
               <div className='slider-data-btn'>
-                <button className='portfolio-project-github-btn'>
-                  <a href={code} target='blank' className='gitHub-icon'>
-                    <FiGithub />
-                  </a>
-                </button>
-                <button className='portfolio-project-host-btn'>
-                  <a href={demo} target='blank' className='demo-icon'>
+                <button className='portfolio-project-github-btn'>Link</button>
+                {/* <a href={code} target='blank' className='gitHub-icon'></a> */}
+
+                <a href={demo} target='blank' className='demo-icon'>
+                  <button className='portfolio-project-host-btn'>
                     <BsBoxArrowUpRight />
-                  </a>
-                </button>
+                  </button>
+                </a>
               </div>
             </div>
           </div>

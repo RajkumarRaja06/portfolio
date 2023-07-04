@@ -5,7 +5,6 @@ import { AiOutlineSend } from 'react-icons/ai';
 import image from '../images/me1.jpg';
 
 const Home = () => {
-  console.log(image);
   return (
     <div className='home' id='home'>
       <div className='social-media-icon'>
