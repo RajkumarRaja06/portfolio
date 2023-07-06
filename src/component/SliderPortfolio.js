@@ -57,7 +57,9 @@ const SliderPortfolio = () => {
               <div className='slider-data-description'>{description}</div>
               <div className='slider-data-btn'>
                 <a href={code} target='blank' className='gitHub-icon'>
-                  <button className='portfolio-project-github-btn'></button>
+                  <button className='portfolio-project-github-btn'>
+                    <FiGithub />
+                  </button>
                 </a>
                 <a href={demo} target='blank' className='demo-icon'>
                   <button className='portfolio-project-host-btn'>
