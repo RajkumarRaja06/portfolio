@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap');
+
 nav {
   position: fixed;
   top: 0;
@@ -59,7 +61,38 @@ nav {
 }
 
 .logo {
-  color: var(--clr-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+.logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.logoBorder {
+  width: 5px;
+  height: 50%;
+  border: 2px ridge #4d4d4d;
+  background-color: #4d4d4d;
+}
+
+.name1,
+.name2 {
+  font-size: 1.75rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+}
+
+.name1 {
+  color: #5a9dee;
+}
+
+.name2 {
+  color: #ffa317;
 }
 
 .navbar-list li a:hover {
@@ -95,10 +128,6 @@ nav {
   display: none;
 }
 
-/* .active-menu {
-  display: block;
-} */
-
 .menu {
   display: flex;
 }
@@ -115,11 +144,18 @@ nav {
 }
 
 /* For Small Device */
+@media screen and (max-width: 1024px) {
+  .name1,
+  .name2 {
+    font-size: 1.4rem;
+  }
+}
 
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 900px) {
   nav {
     position: fixed;
-    top: 87%;
+    bottom: 0;
+    top: auto;
     box-shadow: var(--dark-shadow);
   }
 
@@ -169,5 +205,28 @@ nav {
     bottom: 0;
     left: 47.5%;
     margin-top: 3px;
+  }
+  .name1,
+  .name2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .name1,
+  .name2 {
+    font-size: 1.2rem;
+    letter-spacing: normal;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .name1 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+  .name2 {
+    display: none;
   }
 }

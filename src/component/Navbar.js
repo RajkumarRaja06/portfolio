@@ -6,6 +6,7 @@ import { ImSun } from 'react-icons/im';
 import { BiGridAlt } from 'react-icons/bi';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
+import mouse from '../images/mouse.svg';
 
 const Navbar = () => {
   const [isChangeButton, setIsChangeButton] = useState(true);
@@ -32,7 +33,12 @@ const Navbar = () => {
   return (
     <nav>
       <div className='navbar'>
-        <h1 className='logo'>RajkumarRaja</h1>
+        <div className='logo'>
+          <img src={mouse} alt='Mouse Icon' />
+          <div className='logoBorder'></div>
+          <div className='name1'>RAJKUMAR</div>
+          <div className='name2'>RAJA</div>
+        </div>
         <div className='menu'>
           <ul
             className={`${
