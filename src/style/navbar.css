@@ -154,7 +154,7 @@ nav {
 @media screen and (max-width: 900px) {
   nav {
     position: fixed;
-    bottom: 0;
+    bottom: 5rem;
     top: auto;
     box-shadow: var(--dark-shadow);
   }
