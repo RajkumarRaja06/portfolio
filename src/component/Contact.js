@@ -5,14 +5,22 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { useState } from 'react';
 
 const Contact = () => {
-  // const [users, setUsers] = useState({ name: '', email: '', message: '' });
+  const [users, setUsers] = useState({ name: '', email: '', message: '' });
 
-  // function handleOnchange(event) {
-  //   setUsers({
-  //     ...users,
-  //     [event.target.name]: '',
-  //   });
-  // }
+  const { name, email, message } = users;
+
+  function handleOnchange(event) {
+    const value = event.target.value;
+    const key = event.target.name;
+    setUsers({
+      ...users,
+      [key]: value,
+    });
+  }
+
+  function submitHandler() {
+    setUsers({ name: '', email: '', message: '' });
+  }
 
   return (
     <div className='contact' id='contact'>
@@ -21,6 +29,7 @@ const Contact = () => {
         className='contact-form'
         action='https://formsubmit.co/rkrajkumarco@gmail.com'
         method='POST'
+        onSubmit={submitHandler}
       >
         <input
           type='text'
@@ -28,7 +37,8 @@ const Contact = () => {
           placeholder='Enter your Name'
           className='contact-form-name'
           required
-          // onSubmit={(event) => handleOnchange(event)}
+          value={name}
+          onChange={(event) => handleOnchange(event)}
         />
 
         <input
@@ -37,7 +47,8 @@ const Contact = () => {
           placeholder='Enter a valid email address'
           className='contact-form-email'
           required
-          // onSubmit={(event) => handleOnchange(event)}
+          value={email}
+          onChange={(event) => handleOnchange(event)}
         />
 
         <textarea
@@ -47,7 +58,8 @@ const Contact = () => {
           className='contact-form-message'
           placeholder='Message'
           required
-          // onSubmit={(event) => handleOnchange(event)}
+          value={message}
+          onChange={(event) => handleOnchange(event)}
         ></textarea>
 
         <div className='btn-container'>
