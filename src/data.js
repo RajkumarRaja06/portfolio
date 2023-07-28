@@ -23,6 +23,11 @@ import dragAndDrop from './images/project-7.png';
 import analogClock from './images/project-8.png';
 import registrationForm from './images/project-9.png';
 import expenseTracker from './images/project-10.png';
+import quizApp from './images/project-11.png';
+import resumeBuilder from './images/project-12.png';
+import bookmarker from './images/project-13.png';
+import resumeBuilder1 from './images/project-14.png';
+import countriesFlag from './images/project-15.png';
 
 export const navbarList = [
   {
@@ -181,6 +186,51 @@ export const portfolioSliders = [
     img: expenseTracker,
     code: 'https://rajkumarraja06.github.io/expense-tracker.github.io/',
     demo: 'https://github.com/RajkumarRaja06/expense-tracker.github.io',
+  },
+  {
+    id: 11,
+    name: 'Quiz App',
+    description:
+      'HTML, CSS, and JavaScript combine to create a quiz app that dynamically converts values based on selected currencies.',
+    img: quizApp,
+    code: 'https://github.com/RajkumarRaja06/quiz-app.github.io',
+    demo: 'https://rajkumarraja06.github.io/quiz-app.github.io/',
+  },
+  {
+    id: 12,
+    name: 'Basic Resume Builder',
+    description:
+      'Using HTML, CSS, and JavaScript, create Resume Builder Application',
+    img: resumeBuilder,
+    code: 'https://github.com/RajkumarRaja06/basic-resume-builder',
+    demo: 'https://rajkumarraja06.github.io/basic-resume-builder/',
+  },
+  {
+    id: 13,
+    name: 'Bookmarker',
+    description:
+      'Using HTML, CSS, and JavaScript, create a site bookmarker and also added a search feature.',
+    img: bookmarker,
+    code: 'https://github.com/RajkumarRaja06/bookmark',
+    demo: 'https://lovely-cheesecake-e3de37.netlify.app/',
+  },
+  {
+    id: 14,
+    name: 'Resume Builder',
+    description:
+      'Using HTML, CSS, and JavaScript, create Resume Builder Application',
+    img: resumeBuilder1,
+    code: 'https://github.com/RajkumarRaja06/resume-builder.github.io',
+    demo: 'https://rajkumarraja06.github.io/resume-builder.github.io/',
+  },
+  {
+    id: 15,
+    name: 'Countries Flag',
+    description:
+      'Design and implement a Countries Flag using HTML, CSS, and JavaScript to add flags dynamically and remove features ',
+    img: countriesFlag,
+    code: 'https://github.com/RajkumarRaja06/countries-flag',
+    demo: 'https://rajkumarraja06.github.io/countries-flag/',
   },
 ];
 
