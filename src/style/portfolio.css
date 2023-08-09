@@ -102,10 +102,11 @@
 
 .portfolio-project-github-btn,
 .portfolio-project-host-btn {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   background-color: transparent;
   border: none;
   color: var(--clr-grey-10);
+  cursor: pointer;
 }
 
 .gitHub-icon,

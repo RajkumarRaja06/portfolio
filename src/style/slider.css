@@ -59,24 +59,11 @@
   z-index: 10000;
 }
 
-.slick-dots {
-  top: -10px;
-}
-
-.slick-dots li {
-  margin: 0;
-}
-
-.slick-dots li button:before {
-  font-size: 0.5rem;
+.slick-prev:before,
+.slick-next:before {
   color: var(--clr-button-color);
-  width: 10px;
-  height: 10px;
-}
-
-.slick-dots li.slick-active button:before {
-  font-size: 0.75rem;
-  color: var(--clr-text-light-color);
+  font-size: 1.25rem;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1024px) {
@@ -110,5 +97,8 @@
   }
   .slider-data-name {
     font-size: 1.3rem;
+  }
+  .slick-dots {
+    bottom: -75px;
   }
 }
