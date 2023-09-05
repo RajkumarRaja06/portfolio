@@ -3,11 +3,11 @@ import '../style/portfolio.css';
 import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { FiGithub } from 'react-icons/fi';
-import { portfolioSliders } from '../data';
+import { portfolioSliders1 } from '../data';
 import { useState } from 'react';
 
 const PortfolioData = () => {
-  const [users, setUsers] = useState(portfolioSliders);
+  const [users, setUsers] = useState(portfolioSliders1);
   const [index, setIndex] = useState(0);
 
   const prevUserHandler = () => {

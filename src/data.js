@@ -29,6 +29,10 @@ import bookmarker from './images/project-13.png';
 import resumeBuilder1 from './images/project-14.png';
 import countriesFlag from './images/project-15.png';
 
+import eCommerce from './images/react1.png';
+import food from './images/react2.png';
+import blog from './images/react3.png';
+
 export const navbarList = [
   {
     id: 1,
@@ -231,6 +235,36 @@ export const portfolioSliders = [
     img: countriesFlag,
     code: 'https://github.com/RajkumarRaja06/countries-flag',
     demo: 'https://rajkumarraja06.github.io/countries-flag/',
+  },
+];
+
+export const portfolioSliders1 = [
+  {
+    id: 1,
+    name: 'Food Delivery App',
+    description:
+      'Developed QUICKEAT , a fully responsive food delivery app using React.js, HTML, CSS, JavaScript, Firebase, useContext and useReducer hooks for optimized state management',
+    img: food,
+    code: 'https://github.com/RajkumarRaja06/food-delivery-app',
+    demo: 'https://rajkumarraja-food-delivery-app.netlify.app/',
+  },
+  {
+    id: 2,
+    name: 'Blog Post',
+    description:
+      'A full-stack blog web application that incorporates user authentication, allowing users to create, edit, and delete their own posts.',
+    img: blog,
+    code: 'https://github.com/RajkumarRaja06/react-blog',
+    demo: 'https://rajkumarraja-blog.netlify.app/',
+  },
+  {
+    id: 3,
+    name: 'E Commerce',
+    description:
+      'Developed a responsive e-commerce app called Dress Shop using HTML, CSS, JavaScript, ReactJS and filtering functionality using the useContext',
+    img: eCommerce,
+    code: 'https://github.com/RajkumarRaja06/e-commerce',
+    demo: 'https://rajkumarraja-e-commerce.netlify.app/',
   },
 ];
 

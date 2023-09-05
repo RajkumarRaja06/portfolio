@@ -11,8 +11,8 @@ const SliderPortfolio = () => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 3,
-    autoplay: false,
+    slidesToScroll: 1,
+    autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
