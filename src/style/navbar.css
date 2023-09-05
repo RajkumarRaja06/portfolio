@@ -166,7 +166,7 @@ nav {
   }
 
   .navbar-list {
-    position: absolute;
+    position: fixed;
     bottom: 5rem;
     left: 0;
     width: 100%;
