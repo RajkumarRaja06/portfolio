@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Copy, Check, Send, Linkedin, Github, MessageSquare, CheckCircle2 } from 'lucide-react';
-import { usePortfolioData } from '../context/PortfolioDataContext';
+import { Mail, MapPin, Copy, Check, Send, Linkedin, Github, MessageSquare, CheckCircle2 } from 'lucide-react';
+
+const CONTACT_INFO = {
+  email: 'rajkumarrajaco@gmail.com',
+  location: 'Coimbatore, Tamil Nadu, India',
+  linkedinUrl: 'https://www.linkedin.com/in/rajkumarraja06',
+  githubUrl: 'https://github.com/RajkumarRaja06',
+};
 
 export const Contact = ({ onNotify }) => {
-  const { contactData } = usePortfolioData();
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -63,7 +68,6 @@ export const Contact = ({ onNotify }) => {
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
-      // Simulate network submission
       setTimeout(() => {
         setIsSubmitting(false);
         setSubmittedSuccess(true);
@@ -75,7 +79,7 @@ export const Contact = ({ onNotify }) => {
   };
 
   const handleCopyEmail = async () => {
-    const emailToCopy = contactData.email || 'rajkumarrajaco@gmail.com';
+    const emailToCopy = CONTACT_INFO.email;
     try {
       await navigator.clipboard.writeText(emailToCopy);
       setCopiedEmail(true);
@@ -133,10 +137,10 @@ export const Contact = ({ onNotify }) => {
                     Direct Email
                   </span>
                   <a
-                    href={`mailto:${contactData.email || 'rajkumarrajaco@gmail.com'}`}
+                    href={`mailto:${CONTACT_INFO.email}`}
                     className="block text-base sm:text-lg font-bold text-slate-900 dark:text-white hover:text-gold dark:hover:text-gold transition-colors mt-0.5"
                   >
-                    {contactData.email || 'rajkumarrajaco@gmail.com'}
+                    {CONTACT_INFO.email}
                   </a>
                 </div>
               </div>
@@ -155,24 +159,6 @@ export const Contact = ({ onNotify }) => {
               </button>
             </div>
 
-            {/* Phone Card */}
-            <div className="p-6 rounded-2xl bg-white dark:bg-obsidian-card border border-slate-200 dark:border-obsidian-border shadow-sm flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-accent-cyan/15 text-accent-cyan shrink-0 border border-accent-cyan/30">
-                <Phone className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-mono text-slate-400 dark:text-obsidian-muted uppercase tracking-wider">
-                  Direct Phone / WhatsApp
-                </span>
-                <a
-                  href={`tel:${(contactData.phone || '+91 95147 58427').replace(/[^0-9+]/g, '')}`}
-                  className="block text-base sm:text-lg font-bold text-slate-900 dark:text-white hover:text-accent-cyan transition-colors mt-0.5"
-                >
-                  {contactData.phone || '+91 95147 58427'}
-                </a>
-              </div>
-            </div>
-
             {/* Location Card */}
             <div className="p-6 rounded-2xl bg-white dark:bg-obsidian-card border border-slate-200 dark:border-obsidian-border shadow-sm flex items-start gap-4">
               <div className="p-3 rounded-xl bg-accent-emerald/15 text-accent-emerald shrink-0 border border-accent-emerald/30">
@@ -183,7 +169,7 @@ export const Contact = ({ onNotify }) => {
                   Location &amp; Hub
                 </span>
                 <p className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-0.5">
-                  {contactData.location || 'Coimbatore, Tamil Nadu, India'}
+                  {CONTACT_INFO.location}
                 </p>
               </div>
             </div>
@@ -195,7 +181,7 @@ export const Contact = ({ onNotify }) => {
               </span>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={contactData.linkedinUrl || 'https://www.linkedin.com/in/rajkumarraja06'}
+                  href={CONTACT_INFO.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="touch-target inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-white dark:bg-obsidian-card text-slate-800 dark:text-slate-200 hover:text-gold dark:hover:text-gold border border-slate-200 dark:border-obsidian-border hover:border-gold/50 shadow-sm transition-all"
@@ -204,7 +190,7 @@ export const Contact = ({ onNotify }) => {
                   <span>LinkedIn Profile</span>
                 </a>
                 <a
-                  href={contactData.githubUrl || 'https://github.com/RajkumarRaja06'}
+                  href={CONTACT_INFO.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="touch-target inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-white dark:bg-obsidian-card text-slate-800 dark:text-slate-200 hover:text-gold dark:hover:text-gold border border-slate-200 dark:border-obsidian-border hover:border-gold/50 shadow-sm transition-all"

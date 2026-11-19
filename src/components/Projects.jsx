@@ -1,44 +1,20 @@
 import React, { useState } from 'react';
 import { ProjectSvgPreview } from './ProjectSvgPreviews';
 import { ArchitectureModal } from './ArchitectureModal';
-import { ExternalLink, Github, Code, ChevronDown, ChevronUp, Layers, Sparkles, PlusCircle, ShieldCheck } from 'lucide-react';
-import { usePortfolioData } from '../context/PortfolioDataContext';
-import { useAuth } from '../context/AuthContext';
+import { ExternalLink, Github, Code, ChevronDown, ChevronUp, Layers, Sparkles } from 'lucide-react';
+import { PROJECTS, PROJECT_CATEGORIES } from '../data/projectsData';
 
 const INITIAL_VISIBLE_COUNT = 6;
 
-const DEFAULT_CATEGORIES = [
-  { id: 'all', label: 'All Projects' },
-  { id: 'odoo', label: 'Odoo' },
-  { id: 'react', label: 'React' },
-  { id: 'html-css', label: 'HTML & CSS' },
-];
-
 export const Projects = ({ onNotify }) => {
-  const { projects } = usePortfolioData();
-  const { isAdmin } = useAuth();
-
   const [activeCategory, setActiveCategory] = useState('all');
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const [selectedModalProject, setSelectedModalProject] = useState(null);
 
-  // Dynamically extract categories from all projects
-  const uniqueCategories = [
-    ...DEFAULT_CATEGORIES,
-    ...projects
-      .filter((p) => !DEFAULT_CATEGORIES.some((c) => c.id === p.categoryId))
-      .reduce((acc, p) => {
-        if (!acc.some((c) => c.id === p.categoryId)) {
-          acc.push({ id: p.categoryId, label: p.category || p.categoryId });
-        }
-        return acc;
-      }, []),
-  ];
-
   // Filter projects according to category
   const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter((p) => p.categoryId === activeCategory);
+    ? PROJECTS
+    : PROJECTS.filter((p) => p.categoryId === activeCategory);
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProjects.length;
@@ -72,7 +48,7 @@ export const Projects = ({ onNotify }) => {
           <div className="flex flex-col items-start max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-gold/10 text-gold border border-gold/20 text-xs font-bold uppercase tracking-wider mb-3">
               <Layers className="w-3.5 h-3.5" />
-              <span>Curated Portfolio of {projects.length} Applications</span>
+              <span>Curated Portfolio of {PROJECTS.length} Applications</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
               Featured Projects &amp; ERP Implementations
@@ -81,49 +57,37 @@ export const Projects = ({ onNotify }) => {
               From enterprise-scale Odoo backend modules and automated data pipelines to high-performance React web applications and interactive UI utilities.
             </p>
           </div>
-
-          {/* Admin Quick Action Button */}
-          {isAdmin && (
-            <a
-              href="#admin-section"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs bg-gold text-obsidian shadow-md shadow-gold/20 hover:brightness-105 shrink-0"
-            >
-              <PlusCircle className="w-4 h-4" />
-              <span>Add / Manage Projects</span>
-            </a>
-          )}
         </div>
 
         {/* Dynamic Category Filter Tabs */}
         <div 
           className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 pb-2 overflow-x-auto"
           role="tablist"
-          aria-label="Project category filter tabs"
+          aria-label="Project category filter"
         >
-          {uniqueCategories.map((cat) => {
-            const count = cat.id === 'all' 
-              ? projects.length 
-              : projects.filter(p => p.categoryId === cat.id).length;
+          {PROJECT_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
+            const count = cat.id === 'all' 
+              ? PROJECTS.length 
+              : PROJECTS.filter((p) => p.categoryId === cat.id).length;
 
             return (
               <button
                 key={cat.id}
                 role="tab"
                 aria-selected={isActive}
-                aria-controls="projects-grid"
                 onClick={() => handleCategoryChange(cat.id)}
-                className={`touch-target px-5 py-2.5 rounded-xl text-sm font-bold tracking-tight transition-all duration-200 flex items-center gap-2 ${
+                className={`touch-target px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
                   isActive
                     ? 'bg-gradient-to-r from-gold to-gold-amber text-obsidian shadow-md shadow-gold/25'
-                    : 'bg-slate-100 dark:bg-obsidian-card text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-obsidian-border hover:border-gold/50 hover:text-slate-900 dark:hover:text-white'
+                    : 'bg-white dark:bg-obsidian-card text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-obsidian-border hover:border-gold/50'
                 }`}
               >
                 <span>{cat.label}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${
-                  isActive 
-                    ? 'bg-obsidian/20 text-obsidian font-extrabold' 
-                    : 'bg-slate-200 dark:bg-obsidian-surface text-slate-500 dark:text-obsidian-muted'
+                <span className={`px-2 py-0.5 rounded-full text-xs font-mono font-black ${
+                  isActive
+                    ? 'bg-obsidian/20 text-obsidian'
+                    : 'bg-slate-100 dark:bg-obsidian-surface text-slate-500 dark:text-obsidian-muted'
                 }`}>
                   {count}
                 </span>
@@ -132,124 +96,128 @@ export const Projects = ({ onNotify }) => {
           })}
         </div>
 
-        {/* Responsive Project Grid */}
-        <div
-          id="projects-grid"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          {visibleProjects.map((project) => {
-            const hasTechnicalModal = project.hasModal || !!project.architecture;
-
-            return (
-              <article
-                key={project.id}
-                className="group flex flex-col rounded-2xl bg-white dark:bg-obsidian-card border border-slate-200 dark:border-obsidian-border overflow-hidden shadow-sm hover:shadow-xl hover:border-gold/50 transition-all duration-300 relative"
-              >
-                {/* 16:9 Architectural Preview Banner */}
-                <div className="relative aspect-video w-full overflow-hidden bg-slate-950 border-b border-slate-200 dark:border-obsidian-border">
+        {/* Projects Responsive Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {visibleProjects.map((project) => (
+            <article
+              key={project.id}
+              className="group flex flex-col justify-between rounded-3xl bg-white dark:bg-obsidian-card border border-slate-200 dark:border-obsidian-border hover:border-gold/50 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden"
+            >
+              <div>
+                {/* Visual Preview SVG Header Banner */}
+                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden border-b border-slate-200 dark:border-obsidian-border">
                   <ProjectSvgPreview projectId={project.id} title={project.title} />
                   
-                  {/* Top Badge overlay */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-obsidian/90 text-gold-light border border-gold/30 shadow-md backdrop-blur-sm">
-                      {project.badge || 'Featured'}
+                  {/* Category Pill Tag Overlay */}
+                  <div className="absolute top-3.5 left-3.5">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-obsidian/85 text-gold-amber border border-gold/40 shadow-sm backdrop-blur-md">
+                      {project.badge || project.category}
                     </span>
                   </div>
+
+                  {/* Architecture Modal Trigger Hint */}
+                  {project.hasModal && (
+                    <button
+                      onClick={() => setSelectedModalProject(project)}
+                      className="touch-target absolute top-3.5 right-3.5 p-2 rounded-xl bg-obsidian/85 text-gold hover:text-white border border-gold/40 shadow-sm backdrop-blur-md hover:scale-105 active:scale-95 transition-all"
+                      title="Inspect Technical Architecture"
+                      aria-label={`Inspect Technical Architecture for ${project.title}`}
+                    >
+                      <Sparkles className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
 
                 {/* Card Content Body */}
-                <div className="flex-1 p-6 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-obsidian-muted">
-                      <span>{project.category}</span>
-                      <span>#{project.id.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 14)}</span>
-                    </div>
-
+                <div className="p-6 sm:p-7 space-y-4">
+                  <div className="flex items-start justify-between gap-3">
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-gold transition-colors tracking-tight">
                       {project.title}
                     </h3>
-
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
                   </div>
 
-                  {/* Tech Stack Chips */}
-                  <div className="space-y-4 pt-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {(project.techStack || []).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-0.5 text-xs font-medium rounded-md bg-slate-100 dark:bg-obsidian-surface text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-obsidian-border/80 font-mono"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                    {/* Action Buttons Footer */}
-                    <div className="pt-3 border-t border-slate-100 dark:border-obsidian-border/80 flex items-center justify-between gap-2">
-                      {hasTechnicalModal ? (
-                        <button
-                          onClick={() => setSelectedModalProject(project)}
-                          className="touch-target w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gold/15 text-gold hover:bg-gold/25 border border-gold/30 hover:border-gold transition-all focus-visible:ring-2 focus-visible:ring-gold"
-                        >
-                          <Code className="w-4 h-4" />
-                          <span>Architecture &amp; Code</span>
-                        </button>
-                      ) : (
-                        <>
-                          {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="touch-target flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-obsidian-surface text-slate-900 dark:text-slate-100 hover:text-gold dark:hover:text-gold border border-slate-200 dark:border-obsidian-border hover:border-gold/50 transition-colors"
-                            >
-                              <span>Live Demo</span>
-                              <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
-                          )}
-                          {project.githubUrl && (
-                            <a
-                              href={project.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="touch-target flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-obsidian-surface text-slate-900 dark:text-slate-100 hover:text-gold dark:hover:text-gold border border-slate-200 dark:border-obsidian-border hover:border-gold/50 transition-colors"
-                            >
-                              <Github className="w-3.5 h-3.5" />
-                              <span>Code Repo</span>
-                            </a>
-                          )}
-                          {!project.liveUrl && !project.githubUrl && (
-                            <span className="text-xs text-slate-400 italic">Production Enterprise Deployment</span>
-                          )}
-                        </>
-                      )}
-                    </div>
+                  {/* Tech Stack Badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-obsidian-surface text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-obsidian-border"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+
+              {/* Card Footer CTAs */}
+              <div className="px-6 pb-6 pt-2 flex items-center justify-between gap-3 border-t border-slate-100 dark:border-obsidian-border/50">
+                {project.hasModal ? (
+                  <button
+                    onClick={() => setSelectedModalProject(project)}
+                    className="touch-target inline-flex items-center gap-1.5 text-xs font-bold text-gold hover:text-gold-light active:scale-95 transition-all"
+                  >
+                    <Code className="w-4 h-4" />
+                    <span>Technical Architecture</span>
+                  </button>
+                ) : (
+                  <span className="text-xs text-slate-400 font-mono">Module Ready</span>
+                )}
+
+                <div className="flex items-center gap-2">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target p-2 rounded-xl bg-slate-100 dark:bg-obsidian-surface hover:bg-gold/20 text-slate-700 dark:text-slate-300 hover:text-gold border border-slate-200 dark:border-obsidian-border transition-all"
+                      aria-label={`View GitHub repository for ${project.title}`}
+                      title="GitHub Repository"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gold/15 hover:bg-gold/25 text-gold-dark dark:text-gold-light border border-gold/30 transition-all"
+                      aria-label={`Open live demo for ${project.title}`}
+                      title="Live Demo"
+                    >
+                      <span>Demo</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+            </article>
+          ))}
         </div>
 
-        {/* Show More / Show Less Toggle Button */}
+        {/* Show More / Show Less Accordion Expansion */}
         {filteredProjects.length > INITIAL_VISIBLE_COUNT && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-12 sm:mt-16 text-center">
             <button
               onClick={handleToggleShowMore}
-              className="touch-target inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-slate-100 dark:bg-obsidian-card text-slate-800 dark:text-slate-200 border-2 border-slate-300 dark:border-obsidian-border hover:border-gold hover:text-gold dark:hover:text-gold hover:shadow-lg hover:shadow-gold/10 transition-all focus-visible:ring-2 focus-visible:ring-gold"
+              className="touch-target inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-bold text-sm bg-white dark:bg-obsidian-card text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-obsidian-border hover:border-gold hover:text-gold dark:hover:text-gold shadow-md hover:shadow-xl active:scale-95 transition-all"
             >
               {hasMore ? (
                 <>
                   <span>Show More Projects ({remainingCount} more)</span>
-                  <ChevronDown className="w-5 h-5" />
+                  <ChevronDown className="w-4 h-4" />
                 </>
               ) : (
                 <>
                   <span>Show Less Projects</span>
-                  <ChevronUp className="w-5 h-5" />
+                  <ChevronUp className="w-4 h-4" />
                 </>
               )}
             </button>
@@ -258,7 +226,7 @@ export const Projects = ({ onNotify }) => {
 
       </div>
 
-      {/* Interactive Architecture & Code Modal */}
+      {/* Technical Architecture Deep-Dive Modal */}
       {selectedModalProject && (
         <ArchitectureModal
           project={selectedModalProject}

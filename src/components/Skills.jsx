@@ -1,12 +1,8 @@
 import React from 'react';
-import { Layers, Boxes, Code2, TrendingUp, Database, Wrench, Edit } from 'lucide-react';
-import { usePortfolioData } from '../context/PortfolioDataContext';
-import { useAuth } from '../context/AuthContext';
+import { Layers, Boxes, Code2, TrendingUp, Database, Wrench } from 'lucide-react';
+import { SKILL_CATEGORIES } from '../data/skillsData';
 
 export const Skills = () => {
-  const { skillsData } = usePortfolioData();
-  const { isAdmin } = useAuth();
-
   const getIcon = (iconName) => {
     switch (iconName) {
       case 'Layers':
@@ -46,21 +42,11 @@ export const Skills = () => {
               Specialized toolsets, enterprise ERP proficiencies, full-stack web libraries, and performance optimization practices.
             </p>
           </div>
-
-          {isAdmin && (
-            <a
-              href="#admin-section"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-obsidian-card text-gold border border-gold/30 hover:border-gold shrink-0 transition-colors"
-            >
-              <Edit className="w-3.5 h-3.5" />
-              <span>Add / Manage Skills</span>
-            </a>
-          )}
         </div>
 
         {/* Responsive Grid of Skill Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {skillsData.map((cat) => {
+          {SKILL_CATEGORIES.map((cat) => {
             const accent = cat.accentColor || '#e5a93c';
 
             return (

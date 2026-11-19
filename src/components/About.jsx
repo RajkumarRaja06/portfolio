@@ -1,12 +1,24 @@
 import React from 'react';
-import { Briefcase, GraduationCap, MapPin, Globe, GitBranch, Layers, CheckCircle, Edit } from 'lucide-react';
-import { usePortfolioData } from '../context/PortfolioDataContext';
-import { useAuth } from '../context/AuthContext';
+import { Briefcase, GraduationCap, MapPin, Globe, GitBranch, Layers, CheckCircle } from 'lucide-react';
+
+const ABOUT_DATA = {
+  badge: 'Architectural Profile',
+  heading: 'Odoo ERP Specialist & Full-Stack Engineer',
+  subheading: 'Engineering dependable ERP infrastructure, custom Python workflows, and responsive web applications from Coimbatore, India.',
+  paragraphs: [
+    'As an Odoo Developer at Bambus Technologies LLP, I specialize in architecting tailored ERP solutions that transform operational complexities into streamlined digital workflows. My work bridges deep Python backend development with custom Odoo v16–v19 ORM modeling, modular architectural design, and responsive OWL UI components.',
+    'Beyond core ERP customization, I build high-performance web applications using modern React, Node.js, and Shopify Liquid. I focus on end-to-end reliability: from relational database optimization in PostgreSQL to automated SLA monitoring, secure role-based portals, and sub-second web performance.',
+    'I hold a Bachelor of Engineering from Knowledge Institute of Technology (2021) and bring a rigorous, test-driven mindset to module design, clean code architecture, and client communications.',
+  ],
+  specifications: {
+    location: 'Coimbatore, Tamil Nadu, India',
+    languages: 'English, Tamil',
+    erpVersions: 'Odoo v16, v17, v18, v19 (OWL)',
+    versionControl: 'Git, GitLab, GitHub',
+  },
+};
 
 export const About = () => {
-  const { aboutData } = usePortfolioData();
-  const { isAdmin } = useAuth();
-
   return (
     <section
       id="about"
@@ -20,25 +32,15 @@ export const About = () => {
           <div className="flex flex-col items-start max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-gold/10 text-gold border border-gold/20 text-xs font-bold uppercase tracking-wider mb-3">
               <Layers className="w-3.5 h-3.5" />
-              <span>{aboutData.badge}</span>
+              <span>{ABOUT_DATA.badge}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-              {aboutData.heading}
+              {ABOUT_DATA.heading}
             </h2>
             <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-              {aboutData.subheading}
+              {ABOUT_DATA.subheading}
             </p>
           </div>
-
-          {isAdmin && (
-            <a
-              href="#admin-section"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-obsidian-card text-gold border border-gold/30 hover:border-gold shrink-0 transition-colors"
-            >
-              <Edit className="w-3.5 h-3.5" />
-              <span>Edit About Section</span>
-            </a>
-          )}
         </div>
 
         {/* 2-Column Split: Narrative & Core Details Card (Left) | Experience & Education Timeline (Right) */}
@@ -47,7 +49,7 @@ export const About = () => {
           {/* Left Column (6 cols): Narrative & 2x2 Details Card */}
           <div className="lg:col-span-6 space-y-6">
             <div className="prose prose-slate dark:prose-invert max-w-none text-base sm:text-lg text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed">
-              {aboutData.paragraphs.map((paragraph, idx) => (
+              {ABOUT_DATA.paragraphs.map((paragraph, idx) => (
                 <p key={idx}>{paragraph}</p>
               ))}
             </div>
@@ -66,7 +68,7 @@ export const About = () => {
                   </div>
                   <div>
                     <dt className="text-xs text-slate-500 dark:text-obsidian-muted font-medium">Location</dt>
-                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{aboutData.specifications.location}</dd>
+                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{ABOUT_DATA.specifications.location}</dd>
                   </div>
                 </div>
 
@@ -77,7 +79,7 @@ export const About = () => {
                   </div>
                   <div>
                     <dt className="text-xs text-slate-500 dark:text-obsidian-muted font-medium">Languages</dt>
-                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{aboutData.specifications.languages}</dd>
+                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{ABOUT_DATA.specifications.languages}</dd>
                   </div>
                 </div>
 
@@ -88,7 +90,7 @@ export const About = () => {
                   </div>
                   <div>
                     <dt className="text-xs text-slate-500 dark:text-obsidian-muted font-medium">ERP Versions</dt>
-                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{aboutData.specifications.erpVersions}</dd>
+                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{ABOUT_DATA.specifications.erpVersions}</dd>
                   </div>
                 </div>
 
@@ -99,7 +101,7 @@ export const About = () => {
                   </div>
                   <div>
                     <dt className="text-xs text-slate-500 dark:text-obsidian-muted font-medium">Version Control</dt>
-                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{aboutData.specifications.versionControl}</dd>
+                    <dd className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">{ABOUT_DATA.specifications.versionControl}</dd>
                   </div>
                 </div>
 

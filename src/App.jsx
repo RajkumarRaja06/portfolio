@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import { PortfolioDataProvider } from './context/PortfolioDataContext';
-import { AuthModal } from './components/AuthModal';
-import { GoogleAuthPopup } from './components/GoogleAuthPopup';
-import { ProfileModal } from './components/ProfileModal';
-import { AdminSection } from './components/AdminSection';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -16,12 +10,9 @@ import { NotificationToast } from './components/NotificationToast';
 
 const THEME_STORAGE_KEY = 'rajkumar_portfolio_theme';
 
-function AppContent() {
+export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [notification, setNotification] = useState({ message: '', type: 'success' });
-  const [isGooglePopupOpen, setIsGooglePopupOpen] = useState(false);
-
-  const { isProfileModalOpen, closeProfileModal } = useAuth();
 
   // Initialize theme from localStorage or default to Dark mode
   useEffect(() => {
@@ -95,17 +86,12 @@ function AppContent() {
       <Navbar
         darkMode={darkMode}
         onToggleTheme={toggleTheme}
-        onNotify={showNotification}
-        onOpenGoogleAuth={() => setIsGooglePopupOpen(true)}
       />
 
       {/* Semantic Main Landmark */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
         {/* Hero Section */}
         <Hero onNotify={showNotification} />
-
-        {/* Admin Control Studio (Rendered exclusively for Admin) */}
-        <AdminSection onNotify={showNotification} />
 
         {/* About & Experience Section */}
         <About />
@@ -123,23 +109,6 @@ function AppContent() {
       {/* Footer Landmark */}
       <Footer />
 
-      {/* Google Authentication Account Chooser Popup (Matching User Screenshot) */}
-      <GoogleAuthPopup
-        isOpen={isGooglePopupOpen}
-        onClose={() => setIsGooglePopupOpen(false)}
-        onNotify={showNotification}
-      />
-
-      {/* User Profile Modal (From Dropdown Item) */}
-      <ProfileModal
-        isOpen={isProfileModalOpen}
-        onClose={closeProfileModal}
-        onNotify={showNotification}
-      />
-
-      {/* Fallback Auth Modal */}
-      <AuthModal onNotify={showNotification} />
-
       {/* Accessible Floating Notification Toast */}
       {notification.message && (
         <NotificationToast
@@ -150,15 +119,5 @@ function AppContent() {
       )}
 
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <AuthProvider>
-      <PortfolioDataProvider>
-        <AppContent />
-      </PortfolioDataProvider>
-    </AuthProvider>
   );
 }
