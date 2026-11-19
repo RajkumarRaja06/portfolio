@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Rajkumar Raja — Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Production-ready, modern, high-converting personal portfolio website built with **Vite**, **React 18+**, **Tailwind CSS**, and **Lucide React** for **Rajkumar Raja**, an Odoo Developer (v16–v19) & Full-Stack Web Developer based in Coimbatore, Tamil Nadu, India.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Key Features & Architectural Highlights
 
-### `npm start`
+### 1. Visual Design System & Themes
+- **Default Dark Mode:** Architectural Deep Obsidian Slate (`#0b0d14`) & Warm Amber-Gold (`#e5a93c` / `#f59e0b`).
+- **Alabaster Light Mode (`#faf9f6`):** Clean, crisp alternative persisted in `localStorage`.
+- **Architectural Grid Backdrop:** Subtle ambient radial glows overlaid on a `44px × 44px` architectural coordinate grid.
+- **Fluid Typography:** Responsive scale across mobile (`320px+`), tablet (`768px+`), laptop (`1024px+`), and large desktop (`1440px+`) with zero horizontal overflow (`overflow-x-hidden`).
+- **Strict Content Compliance:** Verified complete absence of forbidden terminology.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Sticky Glassmorphic Header (`Navbar`)
+- Monogram badge (`RR`), Rajkumar Raja branding, and live availability indicator.
+- Smooth-scrolling section links (`About`, `Projects`, `Skills`, `Contact`).
+- Theme toggle and "Hire Me" call-to-action button.
+- Mobile drawer navigation with keyboard `Escape` handling and accessible touch targets (min `44×44px`).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. Hero Section & Interactive Portrait Stage
+- 12-column desktop split (`7 cols` copy | `5 cols` portrait stage).
+- Proof metrics strip: `v16–v19` (Odoo ERP Stack), `21+ Apps` (Live Web & ERP), `Full-Stack` (Python, OWL & React).
+- Prominent `1:1` circular portrait (`clamp(240px, 28vw, 330px)`) framed in a warm gold bezel (`#e5a93c`) with dark outer track (`#110e1b`) and rotating dual accent arcs (cyan `#22d3ee` and magenta `#d946ef`).
+- **Click-to-Change Photo Feature (`useRef` + `FileReader` + `localStorage`):** Click the portrait, camera badge, or upload button to upload custom photos saved directly to browser storage, with a one-click Reset option.
 
-### `npm test`
+### 4. Experience & Education Timeline (`#about`)
+- Hands-on technical narrative covering Odoo v16–v19 ORM, Python controllers, QWeb/XML views, REST APIs, OWL JS, React JS, and Shopify Liquid CRO audits.
+- 2×2 specification definition card (`<dl>`).
+- Work experience at **Bambus Technologies LLP** (`Jan 2024 – Present`, Coimbatore, TN).
+- Bachelor of Engineering (B.E.) from **Knowledge Institute of Technology** (`Graduated: 2021`).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5. Projects Showcase (`#projects`)
+- **Strict Category Order:** `All Projects` → `Odoo` → `React` → `HTML & CSS`.
+- **6-Card Initial View:** 6 initial cards with responsive "Show More Projects (X more)" and "Show Less Projects" toggle (resets automatically when switching categories).
+- **Custom 16:9 Architectural SVG UI Previews:** Custom SVG interfaces on each of the 21 cards.
+- **Odoo Architecture & Code Modal:** Interactive modal with architectural breakdown, production-ready Python/Liquid code snippets, syntax styling, and one-click copy button.
+- **External Links:** Direct live demo and GitHub repository links for web and React projects.
 
-### `npm run build`
+### 6. Categorized Technical Skills (`#skills`)
+- 5 comprehensive skill groups:
+  1. Odoo & ERP Development
+  2. Odoo Core Modules
+  3. Languages & Frameworks
+  4. E-Commerce & SEO
+  5. Databases, APIs & Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 7. Validated Contact Section & Footer (`#contact`)
+- Email card (`rajkumarrajaco@gmail.com`) with instant copy feedback.
+- Phone card (`+91 95147 58427`).
+- Location card (`Coimbatore, Tamil Nadu, India`).
+- Verified links to LinkedIn and GitHub.
+- Validated contact form with inline error alerts and accessible `aria-live` confirmation status.
+- Dynamic copyright and smooth-scrolling "Back to top ↑" action.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+- **Framework:** React 18+ (Vite 5)
+- **Styling:** Tailwind CSS 3
+- **Icons:** Lucide React
+- **Architecture:** Component-driven, semantic HTML5 landmarks, WCAG 2.1 touch & accessibility standards
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Development
+\`\`\`bash
+npm run dev
+\`\`\`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Production Build
+\`\`\`bash
+npm run build
+\`\`\`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Preview Production Build
+\`\`\`bash
+npm run preview
+\`\`\`
